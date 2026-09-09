@@ -2,8 +2,10 @@
   position: relative;
   background-color: var(--deep-purple);
   background-image:
-    radial-gradient(ellipse 55% 50% at 90% 5%, color-mix(in srgb, var(--fuchsia) 30%, transparent), transparent 60%),
-    radial-gradient(ellipse 60% 55% at 5% 95%, color-mix(in srgb, var(--magenta) 30%, transparent), transparent 60%),
+    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--fuchsia) 55%, transparent), transparent 45%),
+    radial-gradient(circle at 80% 15%, color-mix(in srgb, var(--violet) 55%, transparent), transparent 45%),
+    radial-gradient(circle at 15% 75%, color-mix(in srgb, var(--magenta) 55%, transparent), transparent 45%),
+    radial-gradient(circle at 85% 80%, color-mix(in srgb, var(--pink) 50%, transparent), transparent 45%),
     linear-gradient(180deg, var(--purple) 0%, var(--deep-purple) 100%);
   padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 5vw, 3rem);
   overflow: hidden;
