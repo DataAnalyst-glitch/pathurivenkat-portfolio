@@ -1,7 +1,9 @@
+import './Footer.css'
+
 function Footer() {
   return (
-    <footer>
-      <p>Footer placeholder — copyright, links, etc.</p>
+    <footer className="site-footer">
+      <p className="site-footer-text">Built by Pathuri Venkateswara Rao</p>
     </footer>
   )
 }
