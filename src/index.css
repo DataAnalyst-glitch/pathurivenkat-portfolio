@@ -1,0 +1,21 @@
+:root {
+  --pink: #ec4899;
+  --fuchsia: #d946ef;
+  --magenta: #9333ea;
+  --violet: #7c3aed;
+  --purple: #581c87;
+  --deep-purple: #3b0764;
+  --accent: #facc15;
+  --text-body: #ecdcf3;
+  --text-bright: #ffffff;
+  --heading-font: 'Outfit', system-ui, sans-serif;
+  --body-font: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}

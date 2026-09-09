@@ -1,0 +1,33 @@
+.about {
+  display: flex;
+  justify-content: center;
+  padding: clamp(1.5rem, 6vw, 3rem) clamp(1.25rem, 5vw, 3rem) clamp(4rem, 10vw, 6rem);
+}
+
+.about-card {
+  width: 100%;
+  max-width: 720px;
+  padding: clamp(1.75rem, 4.5vw, 2.5rem);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.about-heading {
+  margin: 0 0 1rem;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  color: var(--accent);
+}
+
+.about-text {
+  margin: 0;
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--text-body);
+}
