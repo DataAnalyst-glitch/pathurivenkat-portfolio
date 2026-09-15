@@ -1,4 +1,6 @@
-// Hardcoded for now — will move to Firestore once the admin CRUD batch is built.
+// Seed data only — used once by the admin dashboard's "Seed from static data"
+// button to populate the Firestore "skills" collection. The live site reads
+// from Firestore (src/hooks/useSkills.js), not this file.
 export const skillGroups = [
   {
     id: 'frontend',

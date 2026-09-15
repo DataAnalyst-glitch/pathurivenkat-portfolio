@@ -1,4 +1,6 @@
-// Hardcoded for now — will move to Firestore once the admin CRUD batch is built.
+// Seed data only — used once by the admin dashboard's "Seed from static data"
+// button to populate the Firestore "projects" collection. The live site reads
+// from Firestore (src/hooks/useProjects.js), not this file.
 export const projects = [
   {
     id: 'digihostel',

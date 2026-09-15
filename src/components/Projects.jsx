@@ -1,7 +1,11 @@
 import './Projects.css'
-import { projects } from '../data/projects'
+import { useProjects } from '../hooks/useProjects'
 
 function Projects() {
+  const { projects, loading } = useProjects()
+
+  if (loading || projects.length === 0) return null
+
   return (
     <section id="projects" className="projects" aria-label="Projects">
       <div className="projects-inner">

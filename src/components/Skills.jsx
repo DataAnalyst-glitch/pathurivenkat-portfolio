@@ -1,7 +1,11 @@
 import './Skills.css'
-import { skillGroups } from '../data/skills'
+import { useSkills } from '../hooks/useSkills'
 
 function Skills() {
+  const { skillGroups, loading } = useSkills()
+
+  if (loading || skillGroups.length === 0) return null
+
   return (
     <section id="skills" className="skills" aria-label="Skills">
       <div className="skills-inner">
