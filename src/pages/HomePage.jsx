@@ -1,7 +1,11 @@
 import Hero from '../components/Hero'
-import About from '../components/About'
+import ProofStrip from '../components/ProofStrip'
+import ProblemSection from '../components/ProblemSection'
 import Projects from '../components/Projects'
+import ProcessSection from '../components/ProcessSection'
+import Founder from '../components/Founder'
 import Skills from '../components/Skills'
+import FaqSection from '../components/FaqSection'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import './HomePage.css'
@@ -12,10 +16,14 @@ function HomePage() {
       <main>
         <div className="intro">
           <Hero />
-          <About />
         </div>
+        <ProofStrip />
+        <ProblemSection />
         <Projects />
+        <ProcessSection />
+        <Founder />
         <Skills />
+        <FaqSection />
         <Contact />
       </main>
       <Footer />

@@ -1,20 +1,25 @@
-.about {
+.founder {
   display: flex;
   justify-content: center;
   padding: clamp(1.5rem, 6vw, 3rem) clamp(1.25rem, 5vw, 3rem) clamp(4rem, 10vw, 6rem);
 }
 
-.about-card {
+.founder-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 3rem);
   width: 100%;
-  max-width: 720px;
-  padding: clamp(1.75rem, 4.5vw, 2.5rem);
+  max-width: 980px;
+  padding: clamp(1.75rem, 4.5vw, 2.75rem);
   border-radius: 28px;
+  text-align: center;
   background-image:
     radial-gradient(140% 100% at 12% -10%, rgba(255, 255, 255, 0.6), transparent 45%),
     linear-gradient(
       160deg,
-      color-mix(in srgb, var(--pub-blue) 50%, transparent) 0%,
-      color-mix(in srgb, var(--pub-blue) 80%, transparent) 100%
+      color-mix(in srgb, var(--pub-purple) 50%, transparent) 0%,
+      color-mix(in srgb, var(--pub-purple) 80%, transparent) 100%
     );
   backdrop-filter: blur(26px) saturate(190%);
   -webkit-backdrop-filter: blur(26px) saturate(190%);
@@ -22,23 +27,46 @@
   box-shadow:
     inset 0 1.5px 0 rgba(255, 255, 255, 0.65),
     inset 0 -16px 22px -18px rgba(15, 23, 42, 0.38),
-    0 20px 45px color-mix(in srgb, var(--pub-blue) 30%, transparent),
+    0 20px 45px color-mix(in srgb, var(--pub-purple) 30%, transparent),
     0 8px 20px rgba(15, 23, 42, 0.1);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-.about-card:hover {
+.founder-card:hover {
   transform: translateY(-6px) scale(1.015);
   box-shadow:
     inset 0 1.5px 0 rgba(255, 255, 255, 0.75),
     inset 0 -16px 22px -18px rgba(15, 23, 42, 0.38),
-    0 30px 60px color-mix(in srgb, var(--pub-blue) 40%, transparent),
+    0 30px 60px color-mix(in srgb, var(--pub-purple) 40%, transparent),
     0 12px 26px rgba(15, 23, 42, 0.12);
 }
 
-.about-heading {
+.founder-photo-frame {
+  flex-shrink: 0;
+  width: clamp(140px, 26vw, 190px);
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--pub-glass-bg-strong);
+  border: 2px solid color-mix(in srgb, var(--pub-purple) 45%, transparent);
+}
+
+.founder-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.founder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.founder-heading {
   margin: 0 0 1rem;
   font-family: var(--heading-font);
   font-weight: 700;
@@ -46,11 +74,23 @@
   color: var(--pub-heading);
 }
 
-.about-text {
+.founder-text {
   margin: 0;
   font-family: var(--body-font);
   font-weight: 400;
   font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.7;
   color: var(--pub-body);
+  max-width: 60ch;
+}
+
+@media (min-width: 720px) {
+  .founder-card {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .founder-content {
+    align-items: flex-start;
+  }
 }

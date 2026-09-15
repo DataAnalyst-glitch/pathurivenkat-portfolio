@@ -1,5 +1,6 @@
 import './Projects.css'
 import { useProjects } from '../hooks/useProjects'
+import { caseStudyProblems, defaultCaseStudyProblem } from '../data/caseStudyProblems'
 
 function Projects() {
   const { projects, loading } = useProjects()
@@ -7,9 +8,9 @@ function Projects() {
   if (loading || projects.length === 0) return null
 
   return (
-    <section id="projects" className="projects" aria-label="Projects">
+    <section id="projects" className="projects" aria-label="Case studies">
       <div className="projects-inner">
-        <h2 className="projects-heading">Projects</h2>
+        <h2 className="projects-heading">Real systems we&apos;ve built</h2>
 
         <div className="projects-grid">
           {projects.map((project) => (
@@ -19,7 +20,18 @@ function Projects() {
               style={{ '--card-accent': project.accent }}
             >
               <h3 className="project-name">{project.name}</h3>
-              <p className="project-description">{project.description}</p>
+
+              <div className="project-case-block">
+                <p className="project-case-label">The problem</p>
+                <p className="project-case-text">
+                  {caseStudyProblems[project.id] ?? defaultCaseStudyProblem}
+                </p>
+              </div>
+
+              <div className="project-case-block">
+                <p className="project-case-label">What we built</p>
+                <p className="project-case-text">{project.description}</p>
+              </div>
 
               {project.tech.length > 0 && (
                 <ul className="project-tech">
@@ -29,7 +41,11 @@ function Projects() {
                 </ul>
               )}
 
-              {project.status && <p className="project-status">{project.status}</p>}
+              <div className="project-case-block">
+                <p className="project-case-label">The outcome</p>
+                {project.status && <p className="project-status">{project.status}</p>}
+                <p className="project-proves">{project.proves}</p>
+              </div>
 
               {project.link ? (
                 <a
@@ -43,8 +59,6 @@ function Projects() {
               ) : (
                 <span className="project-link project-link--label">{project.linkLabel}</span>
               )}
-
-              <p className="project-proves">{project.proves}</p>
             </article>
           ))}
         </div>

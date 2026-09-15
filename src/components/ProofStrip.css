@@ -1,0 +1,101 @@
+.proof-strip {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 3.5rem) clamp(1.25rem, 5vw, 3rem);
+}
+
+.proof-strip-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.proof-strip-heading {
+  margin: 0 0 clamp(1.75rem, 4vw, 2.25rem);
+  text-align: center;
+  font-family: var(--heading-font);
+  font-weight: 800;
+  font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+  color: var(--pub-heading);
+}
+
+.proof-strip-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2.5vw, 1.25rem);
+}
+
+@media (min-width: 640px) {
+  .proof-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .proof-strip-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.proof-card {
+  --card-tint: var(--pub-blue);
+  display: block;
+  padding: clamp(1.3rem, 2.6vw, 1.6rem);
+  border-radius: 22px;
+  background-image:
+    radial-gradient(140% 100% at 12% -10%, rgba(255, 255, 255, 0.6), transparent 45%),
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--card-tint) 50%, transparent) 0%,
+      color-mix(in srgb, var(--card-tint) 80%, transparent) 100%
+    );
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -14px 20px -18px rgba(15, 23, 42, 0.38),
+    0 16px 34px color-mix(in srgb, var(--card-tint) 32%, transparent),
+    0 6px 16px rgba(15, 23, 42, 0.1);
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.proof-card:nth-of-type(4n + 2) {
+  --card-tint: var(--pub-purple);
+}
+
+.proof-card:nth-of-type(4n + 3) {
+  --card-tint: var(--pub-teal);
+}
+
+.proof-card:nth-of-type(4n + 4) {
+  --card-tint: var(--pub-orange);
+}
+
+a.proof-card:hover,
+a.proof-card:focus-visible {
+  transform: translateY(-5px) scale(1.015);
+  box-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -14px 20px -18px rgba(15, 23, 42, 0.38),
+    0 24px 46px color-mix(in srgb, var(--card-tint) 42%, transparent),
+    0 10px 20px rgba(15, 23, 42, 0.12);
+}
+
+.proof-card-name {
+  margin: 0 0 0.5rem;
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: var(--pub-heading);
+}
+
+.proof-card-line {
+  margin: 0;
+  font-family: var(--body-font);
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--card-tint) 30%, var(--pub-heading) 70%);
+}

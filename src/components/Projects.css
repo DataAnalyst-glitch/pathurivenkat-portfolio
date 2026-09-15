@@ -100,6 +100,28 @@
   color: var(--pub-body);
 }
 
+.project-case-block {
+  margin: 0 0 1.1rem;
+}
+
+.project-case-label {
+  margin: 0 0 0.4rem;
+  font-family: var(--body-font);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--project-tint) 35%, var(--pub-heading) 65%);
+}
+
+.project-case-text {
+  margin: 0;
+  font-family: var(--body-font);
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--pub-body);
+}
+
 .project-tech {
   display: flex;
   flex-wrap: wrap;
@@ -120,7 +142,7 @@
 }
 
 .project-status {
-  margin: 0 0 1.2rem;
+  margin: 0 0 0.5rem;
   font-family: var(--body-font);
   font-size: 0.95rem;
   font-weight: 700;
@@ -129,7 +151,7 @@
 
 .project-link {
   align-self: flex-start;
-  margin: 0 0 1.2rem;
+  margin: auto 0 0;
   padding: 0.55rem 1.1rem;
   border-radius: 999px;
   font-family: var(--body-font);
@@ -155,9 +177,7 @@
 }
 
 .project-proves {
-  margin: auto 0 0;
-  padding-top: 1rem;
-  border-top: 1px solid color-mix(in srgb, var(--pub-heading) 18%, transparent);
+  margin: 0;
   font-family: var(--body-font);
   font-style: italic;
   font-size: 0.8rem;
