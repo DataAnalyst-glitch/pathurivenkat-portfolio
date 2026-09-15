@@ -59,11 +59,11 @@ function DownloadIcon() {
 }
 
 const contactLinks = [
-  { label: 'Email', href: 'mailto:placeholder@example.com', Icon: EmailIcon, external: false },
-  { label: 'WhatsApp', href: 'https://wa.me/910000000000', Icon: WhatsAppIcon, external: true },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/placeholder', Icon: LinkedInIcon, external: true },
-  { label: 'Instagram', href: 'https://instagram.com/placeholder', Icon: InstagramIcon, external: true },
-  { label: 'GitHub', href: 'https://github.com/placeholder', Icon: GitHubIcon, external: true },
+  { label: 'Email', href: 'mailto:survivepathuri@gmail.com', Icon: EmailIcon, external: false, brand: 'email' },
+  { label: 'WhatsApp', href: 'https://wa.me/918522088696', Icon: WhatsAppIcon, external: true, brand: 'whatsapp' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/placeholder', Icon: LinkedInIcon, external: true, brand: 'linkedin' },
+  { label: 'Instagram', href: 'https://instagram.com/placeholder', Icon: InstagramIcon, external: true, brand: 'instagram' },
+  { label: 'GitHub', href: 'https://github.com/placeholder', Icon: GitHubIcon, external: true, brand: 'github' },
 ]
 
 function Contact() {
@@ -74,9 +74,9 @@ function Contact() {
         <p className="contact-subtext">Open to freelance work and full-time opportunities.</p>
 
         <div className="contact-links">
-          {contactLinks.map(({ label, href, Icon, external }) => (
+          {contactLinks.map(({ label, href, Icon, external, brand }) => (
             <a
-              className="contact-link"
+              className={`contact-link contact-link--${brand}`}
               href={href}
               key={label}
               aria-label={label}
