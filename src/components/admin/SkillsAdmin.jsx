@@ -141,43 +141,14 @@ function SkillsAdmin() {
     }
   }
 
-  // TEMPORARY — one-click add for the two new Data/AI skill groups requested
-  // out-of-band. Remove this button + handler once clicked and confirmed.
-  async function handleAddDataAiSkills() {
-    setSeeding(true)
-    setActionError(null)
-    try {
-      const maxOrder = skillGroups.reduce((max, g) => Math.max(max, g.order ?? 0), -1)
-      const newGroups = [
-        { label: 'Data Analytics', items: ['Power BI', 'SQL', 'Python (Pandas)'] },
-        { label: 'AI/ML', items: ['RAG', 'Agentic AI', 'Vector Databases'] },
-      ]
-      const batch = writeBatch(db)
-      newGroups.forEach((group, index) => {
-        batch.set(doc(collection(db, SKILLS_COLLECTION)), { ...group, order: maxOrder + 1 + index })
-      })
-      await batch.commit()
-    } catch (err) {
-      setActionError(`Couldn't add: ${err.message}`)
-    } finally {
-      setSeeding(false)
-    }
-  }
-
   return (
     <section className="admin-section" aria-label="Manage skills">
       <div className="admin-section-header">
         <h2>Skills</h2>
         {!adding && (
-          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-            <button type="button" onClick={() => setAdding(true)}>
-              + Add skill group
-            </button>
-            {/* TEMPORARY — remove this button once clicked and confirmed working */}
-            <button type="button" onClick={handleAddDataAiSkills} disabled={seeding}>
-              {seeding ? 'Adding…' : 'Add Data/AI skills'}
-            </button>
-          </div>
+          <button type="button" onClick={() => setAdding(true)}>
+            + Add skill group
+          </button>
         )}
       </div>
 
