@@ -1,14 +1,6 @@
 .projects {
   position: relative;
-  background-color: var(--deep-purple);
-  background-image:
-    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--fuchsia) 55%, transparent), transparent 45%),
-    radial-gradient(circle at 80% 15%, color-mix(in srgb, var(--violet) 55%, transparent), transparent 45%),
-    radial-gradient(circle at 15% 75%, color-mix(in srgb, var(--magenta) 55%, transparent), transparent 45%),
-    radial-gradient(circle at 85% 80%, color-mix(in srgb, var(--pink) 50%, transparent), transparent 45%),
-    linear-gradient(180deg, var(--purple) 0%, var(--deep-purple) 100%);
   padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 5vw, 3rem);
-  overflow: hidden;
 }
 
 .projects-inner {
@@ -22,7 +14,7 @@
   font-family: var(--heading-font);
   font-weight: 800;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
-  color: var(--text-bright);
+  color: var(--pub-heading);
 }
 
 .projects-grid {
@@ -38,33 +30,58 @@
 }
 
 .project-card {
+  /* Fixed saturated cycle, independent of each project's stored accent field
+     (kept in Firestore for other uses) so the grid always reads blue → purple
+     → teal → orange → pink regardless of how many cards exist. */
+  --project-tint: var(--pub-blue);
   display: flex;
   flex-direction: column;
   padding: clamp(1.75rem, 3.4vw, 2.25rem);
-  border-radius: 24px;
-  background-color: color-mix(in srgb, var(--card-accent, var(--accent)) 10%, transparent);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-  border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent)) 35%, transparent);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border-radius: 28px;
+  background-image:
+    radial-gradient(140% 100% at 12% -10%, rgba(255, 255, 255, 0.65), transparent 45%),
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--project-tint) 55%, transparent) 0%,
+      color-mix(in srgb, var(--project-tint) 86%, transparent) 100%
+    );
+  backdrop-filter: blur(26px) saturate(190%);
+  -webkit-backdrop-filter: blur(26px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--card-accent, var(--accent)) 15%, transparent),
-    0 0 32px color-mix(in srgb, var(--card-accent, var(--accent)) 18%, transparent),
-    0 20px 40px rgba(0, 0, 0, 0.3);
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -18px 26px -20px rgba(15, 23, 42, 0.4),
+    0 22px 48px color-mix(in srgb, var(--project-tint) 38%, transparent),
+    0 10px 22px rgba(15, 23, 42, 0.12);
   transition:
-    border-color 0.3s ease,
     box-shadow 0.3s ease,
     transform 0.3s ease;
 }
 
+.project-card:nth-of-type(5n + 2) {
+  --project-tint: var(--pub-purple);
+}
+
+.project-card:nth-of-type(5n + 3) {
+  --project-tint: var(--pub-teal);
+}
+
+.project-card:nth-of-type(5n + 4) {
+  --project-tint: var(--pub-orange);
+}
+
+.project-card:nth-of-type(5n + 5) {
+  --project-tint: var(--pub-pink);
+}
+
 .project-card:hover,
 .project-card:focus-within {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--card-accent, var(--accent)) 55%, transparent);
+  transform: translateY(-6px) scale(1.015);
   box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--card-accent, var(--accent)) 40%, transparent),
-    0 0 50px color-mix(in srgb, var(--card-accent, var(--accent)) 40%, transparent),
-    0 25px 50px -20px rgba(0, 0, 0, 0.55);
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -18px 26px -20px rgba(15, 23, 42, 0.4),
+    0 32px 65px color-mix(in srgb, var(--project-tint) 48%, transparent),
+    0 14px 28px rgba(15, 23, 42, 0.14);
 }
 
 .project-name {
@@ -72,7 +89,7 @@
   font-family: var(--heading-font);
   font-weight: 700;
   font-size: clamp(1.4rem, 2.7vw, 1.75rem);
-  color: var(--text-bright);
+  color: var(--pub-heading);
 }
 
 .project-description {
@@ -80,7 +97,7 @@
   font-family: var(--body-font);
   font-size: clamp(1.05rem, 1.85vw, 1.15rem);
   line-height: 1.6;
-  color: var(--text-body);
+  color: var(--pub-body);
 }
 
 .project-tech {
@@ -95,20 +112,19 @@
 .project-tech li {
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--card-accent, var(--accent)) 16%, transparent);
-  border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent)) 35%, transparent);
+  background: color-mix(in srgb, var(--project-tint) 88%, black 4%);
   font-family: var(--body-font);
   font-size: 0.86rem;
-  font-weight: 500;
-  color: var(--card-accent, var(--accent));
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .project-status {
   margin: 0 0 1.2rem;
   font-family: var(--body-font);
   font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--card-accent, var(--accent));
+  font-weight: 700;
+  color: color-mix(in srgb, var(--project-tint) 30%, var(--pub-heading) 70%);
 }
 
 .project-link {
@@ -120,23 +136,30 @@
   font-size: 0.92rem;
   font-weight: 600;
   text-decoration: none;
-  background: color-mix(in srgb, var(--card-accent, var(--accent)) 18%, transparent);
-  border: 1px solid color-mix(in srgb, var(--card-accent, var(--accent)) 45%, transparent);
-  color: var(--card-accent, var(--accent));
+  background: color-mix(in srgb, var(--project-tint) 88%, black 4%);
+  color: #ffffff;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px color-mix(in srgb, var(--project-tint) 70%, transparent);
 }
 
 .project-link--label {
-  background: color-mix(in srgb, var(--card-accent, var(--accent)) 18%, transparent);
-  border-color: color-mix(in srgb, var(--card-accent, var(--accent)) 45%, transparent);
-  color: var(--card-accent, var(--accent));
+  background: color-mix(in srgb, var(--project-tint) 88%, black 4%);
+  color: #ffffff;
 }
 
 .project-proves {
   margin: auto 0 0;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid color-mix(in srgb, var(--pub-heading) 18%, transparent);
   font-family: var(--body-font);
   font-style: italic;
   font-size: 0.8rem;
-  color: color-mix(in srgb, var(--text-body) 70%, transparent);
+  color: color-mix(in srgb, var(--pub-heading) 78%, transparent);
 }

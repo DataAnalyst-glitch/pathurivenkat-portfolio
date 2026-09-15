@@ -1,14 +1,6 @@
 .skills {
   position: relative;
-  background-color: var(--deep-purple);
-  background-image:
-    radial-gradient(circle at 12% 15%, color-mix(in srgb, var(--accent) 45%, transparent), transparent 40%),
-    radial-gradient(circle at 88% 25%, color-mix(in srgb, var(--fuchsia) 50%, transparent), transparent 42%),
-    radial-gradient(circle at 20% 90%, color-mix(in srgb, var(--magenta) 50%, transparent), transparent 42%),
-    radial-gradient(circle at 90% 85%, color-mix(in srgb, var(--violet) 50%, transparent), transparent 42%),
-    linear-gradient(180deg, var(--deep-purple) 0%, var(--purple) 100%);
   padding: clamp(3rem, 8vw, 5rem) clamp(1.25rem, 5vw, 3rem);
-  overflow: hidden;
 }
 
 .skills-inner {
@@ -22,7 +14,7 @@
   font-family: var(--heading-font);
   font-weight: 800;
   font-size: clamp(1.75rem, 4vw, 2.5rem);
-  color: var(--text-bright);
+  color: var(--pub-heading);
 }
 
 .skills-grid {
@@ -45,30 +37,54 @@
 }
 
 .skill-group {
+  --group-tint: var(--pub-blue);
   padding: clamp(1.4rem, 3vw, 1.75rem);
-  border-radius: 20px;
-  background-color: color-mix(in srgb, var(--accent) 8%, transparent);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
-  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  background-image:
+    radial-gradient(140% 100% at 12% -10%, rgba(255, 255, 255, 0.6), transparent 45%),
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--group-tint) 52%, transparent) 0%,
+      color-mix(in srgb, var(--group-tint) 84%, transparent) 100%
+    );
+  backdrop-filter: blur(26px) saturate(190%);
+  -webkit-backdrop-filter: blur(26px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--accent) 10%, transparent),
-    0 20px 40px rgba(0, 0, 0, 0.3);
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.65),
+    inset 0 -16px 22px -18px rgba(15, 23, 42, 0.38),
+    0 20px 45px color-mix(in srgb, var(--group-tint) 32%, transparent),
+    0 8px 20px rgba(15, 23, 42, 0.1);
   transition:
-    border-color 0.3s ease,
     box-shadow 0.3s ease,
     transform 0.3s ease;
 }
 
+/* No per-group color field in the data model — cycle a fixed saturated palette by position */
+.skill-group:nth-of-type(5n + 2) {
+  --group-tint: var(--pub-purple);
+}
+
+.skill-group:nth-of-type(5n + 3) {
+  --group-tint: var(--pub-teal);
+}
+
+.skill-group:nth-of-type(5n + 4) {
+  --group-tint: var(--pub-pink);
+}
+
+.skill-group:nth-of-type(5n + 5) {
+  --group-tint: var(--pub-amber);
+}
+
 .skill-group:hover,
 .skill-group:focus-within {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  transform: translateY(-6px) scale(1.015);
   box-shadow:
-    0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent),
-    0 0 40px color-mix(in srgb, var(--accent) 30%, transparent),
-    0 20px 40px -16px rgba(0, 0, 0, 0.5);
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -16px 22px -18px rgba(15, 23, 42, 0.38),
+    0 30px 60px color-mix(in srgb, var(--group-tint) 42%, transparent),
+    0 12px 26px rgba(15, 23, 42, 0.12);
 }
 
 .skill-group-label {
@@ -78,7 +94,7 @@
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: color-mix(in srgb, var(--group-tint) 30%, var(--pub-heading) 70%);
 }
 
 .skill-pills {
@@ -90,20 +106,17 @@
 .skill-pill {
   padding: 0.45rem 0.95rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: color-mix(in srgb, var(--group-tint) 85%, black 4%);
   font-family: var(--body-font);
   font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-body);
+  font-weight: 600;
+  color: #ffffff;
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .skill-pill:hover {
-  background: color-mix(in srgb, var(--accent) 16%, transparent);
-  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
-  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -8px color-mix(in srgb, var(--group-tint) 65%, transparent);
 }

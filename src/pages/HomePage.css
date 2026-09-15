@@ -1,9 +1,3 @@
 .intro {
   position: relative;
-  background-color: var(--purple);
-  background-image:
-    radial-gradient(ellipse 65% 60% at 8% 20%, color-mix(in srgb, var(--pink) 65%, transparent), transparent 60%),
-    radial-gradient(ellipse 60% 55% at 95% 90%, color-mix(in srgb, var(--deep-purple) 60%, transparent), transparent 60%),
-    linear-gradient(115deg, var(--pink) 0%, var(--fuchsia) 24%, var(--magenta) 50%, var(--violet) 74%, var(--purple) 100%);
-  overflow: hidden;
 }

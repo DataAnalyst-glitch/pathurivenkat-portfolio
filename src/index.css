@@ -1,4 +1,5 @@
 :root {
+  /* Dark theme tokens — used only by the /admin dashboard, left as-is */
   --pink: #ec4899;
   --fuchsia: #d946ef;
   --magenta: #9333ea;
@@ -10,6 +11,23 @@
   --text-bright: #ffffff;
   --heading-font: 'Outfit', system-ui, sans-serif;
   --body-font: 'Inter', system-ui, sans-serif;
+
+  /* Public site — light glassmorphism theme (Hero/About/Projects/Skills/Contact/Footer) */
+  --pub-bg: #f5f5f7;
+  --pub-heading: #1b1e2b;
+  --pub-body: #454a5c;
+  --pub-muted: #6b7086;
+  --pub-blue: #3b82f6;
+  --pub-purple: #a855f7;
+  --pub-teal: #14b8a6;
+  --pub-pink: #ec4899;
+  --pub-orange: #f97316;
+  --pub-amber: #f59e0b;
+  --pub-glass-bg: rgba(255, 255, 255, 0.22);
+  --pub-glass-bg-strong: rgba(255, 255, 255, 0.34);
+  --pub-glass-border: rgba(255, 255, 255, 0.5);
+  --pub-glass-shadow: 0 20px 40px rgba(17, 24, 39, 0.1);
+  --pub-glass-shadow-hover: 0 28px 55px rgba(17, 24, 39, 0.16);
 }
 
 * {
@@ -18,4 +36,38 @@
 
 body {
   margin: 0;
+  position: relative;
+  background-color: var(--pub-bg);
+  color: var(--pub-body);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1.5px),
+    radial-gradient(ellipse 68% 58% at 6% 10%, color-mix(in srgb, var(--pub-blue) 58%, transparent), transparent 72%),
+    radial-gradient(ellipse 62% 52% at 94% 6%, color-mix(in srgb, var(--pub-purple) 55%, transparent), transparent 72%),
+    radial-gradient(ellipse 65% 58% at 90% 92%, color-mix(in srgb, var(--pub-teal) 52%, transparent), transparent 72%),
+    radial-gradient(ellipse 58% 50% at 4% 92%, color-mix(in srgb, var(--pub-orange) 46%, transparent), transparent 72%);
+  background-size:
+    26px 26px,
+    auto,
+    auto,
+    auto,
+    auto;
+  background-repeat:
+    repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
 }

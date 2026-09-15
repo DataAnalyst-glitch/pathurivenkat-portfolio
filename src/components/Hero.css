@@ -21,8 +21,13 @@
   aspect-ratio: 4 / 5;
   border-radius: 32px;
   overflow: hidden;
-  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.45);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+  background: var(--pub-glass-bg-strong);
+  border: 2px solid color-mix(in srgb, var(--pub-blue) 45%, transparent);
+  backdrop-filter: blur(26px) saturate(190%);
+  -webkit-backdrop-filter: blur(26px) saturate(190%);
+  box-shadow:
+    0 20px 45px color-mix(in srgb, var(--pub-blue) 26%, transparent),
+    0 8px 20px rgba(15, 23, 42, 0.08);
 }
 
 .hero-photo-img {
@@ -40,16 +45,29 @@
 
 .hero-eyebrow {
   display: inline-block;
-  margin: 0 0 1.25rem;
-  padding: 0.45rem 1.1rem;
-  border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
-  color: var(--accent);
-  font-family: var(--body-font);
-  font-size: clamp(0.7rem, 1.6vw, 0.85rem);
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  margin: 0 0 1.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 20px;
+  background-image:
+    radial-gradient(140% 100% at 12% -10%, rgba(255, 255, 255, 0.65), transparent 45%),
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--pub-blue) 55%, transparent) 0%,
+      color-mix(in srgb, var(--pub-purple) 82%, transparent) 100%
+    );
+  backdrop-filter: blur(26px) saturate(190%);
+  -webkit-backdrop-filter: blur(26px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -14px 20px -16px rgba(15, 23, 42, 0.35),
+    0 18px 40px color-mix(in srgb, var(--pub-blue) 32%, transparent),
+    0 8px 18px rgba(15, 23, 42, 0.1);
+  color: var(--pub-heading);
+  font-family: var(--heading-font);
+  font-size: clamp(1rem, 2.4vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .hero-name {
@@ -59,7 +77,7 @@
   font-size: clamp(2.1rem, 6vw, 3.5rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--text-bright);
+  color: var(--pub-heading);
 }
 
 .hero-tagline {
@@ -68,7 +86,7 @@
   font-weight: 400;
   font-size: clamp(1.05rem, 2.5vw, 1.375rem);
   line-height: 1.5;
-  color: var(--text-body);
+  color: var(--pub-body);
 }
 
 @media (min-width: 720px) {
